@@ -1,6 +1,29 @@
 #!flask/bin/python
 from flask import Flask, jsonify
+import requests
 
+###############################
+## HPE Sentiment requests
+###############################
+
+# Init
+f = open('hpe_api_key', 'r')
+api_key = f.read()
+
+# Go through the corpus
+def parse(text):
+  pass
+
+
+# Send request to HPE
+def sentiment_request(text):
+  r = requests.get('https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=hey+there&apikey=' + api_key)
+  print r.text
+  
+
+###############################
+## Flask app
+###############################
 app = Flask(__name__)
 
 sentiments = [
